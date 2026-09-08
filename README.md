@@ -1,6 +1,6 @@
 # Phoenix V2 — Persistent Cognitive AI
 
-The companion codebase for the book **[Building Persistent AI: Designing an Assistant That Remembers, Learns and Belongs to You](https://leanpub.com/phoenix-building-persistent-ai)** by Cleverson Santos.
+The companion codebase for the book **[Building Persistent AI: Designing an Assistant That Remembers, Learns and Belongs to You](https://leanpub.com/phoenix-buildingpersistentAI)** by Cleverson Santos.
 
 ---
 
@@ -9,7 +9,7 @@ The companion codebase for the book **[Building Persistent AI: Designing an Assi
 | | |
 |---|---|
 | 📄 **Companion paper** | [Phoenix V2: A Cognitive Architecture for Persistent, Emotionally-Aware AI Assistants on Consumer Hardware](https://doi.org/10.5281/zenodo.22645361) — Zenodo, September 2026 |
-| 📖 **Book** | [Building Persistent AI: Designing an Assistant That Remembers, Learns and Belongs to You](https://leanpub.com/phoenix-building-persistent-ai) — Complete implementation guide, 26 chapters, 7 appendices |
+| 📖 **Book** | [Building Persistent AI: Designing an Assistant That Remembers, Learns and Belongs to You](https://leanpub.com/phoenix-buildingpersistentAI) — Complete implementation guide, 26 chapters, 7 appendices |
 | 💻 **Repository** | This repository — MIT License |
 
 The paper formally characterizes the amnesia problem, describes the full architecture with equations and a system diagram, and positions Phoenix V2 against Mem0, MemGPT/Letta, Zep, and Generative Agents. The book explains every design decision in detail, chapter by chapter, alongside this codebase.
