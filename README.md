@@ -1,6 +1,18 @@
 # Phoenix V2 — Persistent Cognitive AI
 
-> **The companion codebase for the book *Building Persistent Artificial Intelligence* by Cleverson Santos.**
+The companion codebase for the book **[Building Persistent AI: Designing an Assistant That Remembers, Learns and Belongs to You](https://leanpub.com/phoenix-building-persistent-ai)** by Cleverson Santos.
+
+---
+
+## Publications
+
+| | |
+|---|---|
+| 📄 **Companion paper** | [Phoenix V2: A Cognitive Architecture for Persistent, Emotionally-Aware AI Assistants on Consumer Hardware](https://doi.org/10.5281/zenodo.22645361) — Zenodo, September 2026 |
+| 📖 **Book** | [Building Persistent AI: Designing an Assistant That Remembers, Learns and Belongs to You](https://leanpub.com/phoenix-building-persistent-ai) — Complete implementation guide, 26 chapters, 7 appendices |
+| 💻 **Repository** | This repository — MIT License |
+
+The paper formally characterizes the amnesia problem, describes the full architecture with equations and a system diagram, and positions Phoenix V2 against Mem0, MemGPT/Letta, Zep, and Generative Agents. The book explains every design decision in detail, chapter by chapter, alongside this codebase.
 
 ---
 
@@ -16,13 +28,13 @@ This repository contains the complete, working source code described chapter by 
 
 | Concept | What It Means in Phoenix |
 |---|---|
-| **Persistent Memory** | Conversations are stored in SQLite and retrieved by semantic similarity across sessions |
-| **Multi-Agent Pipeline** | Five specialized agents (Memory → Planning → Action → Reflection → Personality) process each input in sequence |
-| **Blackboard Architecture** | Agents communicate through a shared in-memory workspace — no direct coupling between them |
-| **Emotion Engine** | PAD model (Pleasure-Arousal-Dominance) tracks emotional state continuously based on interaction history |
-| **Daydream Engine** | Background process that generates reflective thoughts when Phoenix is idle |
-| **Subconscious Cycle** | Runs during rest periods to consolidate memories and update beliefs |
-| **RLHF Feedback** | User feedback (+/−) is captured and applied to an internal reinforcement scoring system |
+| Persistent Memory | Conversations are stored in SQLite and retrieved by semantic similarity across sessions |
+| Multi-Agent Pipeline | Five specialized agents (Memory → Planning → Action → Reflection → Personality) process each input in sequence |
+| Blackboard Architecture | Agents communicate through a shared in-memory workspace — no direct coupling between them |
+| Emotion Engine | PAD model (Pleasure-Arousal-Dominance) tracks emotional state continuously based on interaction history |
+| Daydream Engine | Background process that generates reflective thoughts when Phoenix is idle |
+| Subconscious Cycle | Runs during rest periods to consolidate memories and update beliefs |
+| RLHF Feedback | User feedback (+/−) is captured and applied to an internal reinforcement scoring system |
 
 ---
 
@@ -58,7 +70,7 @@ User Input
   (idle background)   (rest-cycle processing)
 ```
 
-Full architecture diagram with all connections: [`docs/architecture.md`](docs/architecture.md)
+Full architecture diagram with all connections: [docs/architecture.md](docs/architecture.md)
 
 ---
 
@@ -131,8 +143,8 @@ phoenix-v2/
 
 ```bash
 # 1. Clone the repository
-git clone https://github.com/cleversonbrsantos-art/phoenix-v2.git
-cd phoenix-v2
+git clone https://github.com/cleversonbrsantos-art/Phoenix.git
+cd Phoenix
 
 # 2. Install dependencies
 npm install
@@ -148,19 +160,20 @@ npm run dev
 # http://localhost:3000
 ```
 
-For detailed setup instructions by operating system (Windows, Linux, macOS), see [`docs/SETUP.md`](docs/SETUP.md).
+For detailed setup instructions by operating system (Windows, Linux, macOS), see [docs/SETUP.md](docs/SETUP.md).
 
 ---
 
 ## Getting Your Free Gemini API Key
 
-1. Go to [https://aistudio.google.com/apikey](https://aistudio.google.com/apikey)
+1. Go to https://aistudio.google.com/apikey
 2. Sign in with a Google account
 3. Click **Create API key**
 4. Copy the key into your `.env` file:
-   ```
-   GEMINI_API_KEY="paste-your-key-here"
-   ```
+
+```
+GEMINI_API_KEY="paste-your-key-here"
+```
 
 The free tier is sufficient to run Phoenix V2 for personal use.
 
@@ -170,10 +183,10 @@ The free tier is sufficient to run Phoenix V2 for personal use.
 
 The system starts four parallel processes:
 
-1. **Express server** on port 3000 — serves the React UI and handles API calls
-2. **Vite dev server** — compiles and hot-reloads the frontend
-3. **SubconsciousEngine** — starts a background loop that runs memory consolidation every 5 minutes
-4. **DaydreamEngine** — watches for idle periods and generates reflective thoughts after 2 minutes of inactivity
+- **Express server** on port 3000 — serves the React UI and handles API calls
+- **Vite dev server** — compiles and hot-reloads the frontend
+- **SubconsciousEngine** — starts a background loop that runs memory consolidation every 5 minutes
+- **DaydreamEngine** — watches for idle periods and generates reflective thoughts after 2 minutes of inactivity
 
 The SQLite database is created automatically at `.data/vault/phoenix_neural_db.sqlite` on first run. All memories, emotional state, and the self-model are persisted there across restarts.
 
@@ -193,23 +206,23 @@ This codebase maps directly to the book's structure:
 | Integration | 19–21 | `server.ts`, `App.tsx`, `scheduler/` |
 | Advanced | 22–25 | `users/`, deployment, observability |
 
-For the complete file-to-chapter mapping: [`docs/chapter-map.md`](docs/chapter-map.md)
+For the complete file-to-chapter mapping: [docs/chapter-map.md](docs/chapter-map.md)
 
 ---
 
 ## Limitations and Scope
 
-This is the **book version** of Phoenix — the version described in the text, built on modest hardware (Intel Core i3, 8 GB RAM), without a GPU or cloud infrastructure.
+This is the book version of Phoenix — the version described in the text, built on modest hardware (Intel Core i3, 8 GB RAM), without a GPU or cloud infrastructure.
 
 It is intentionally designed to run on any modern laptop. It is not production-hardened, does not include authentication, and is not intended for multi-user deployment as-is.
 
-The architecture, however, is built to evolve. Chapter 23 and 25 discuss how to extend it.
+The architecture, however, is built to evolve. Chapters 23 and 25 discuss how to extend it.
 
 ---
 
 ## License
 
-MIT — see `LICENSE` for details.
+MIT — see [LICENSE](LICENSE) for details.
 
 ---
 
@@ -218,4 +231,10 @@ MIT — see `LICENSE` for details.
 **Cleverson Santos** — Commercial Manager, Sinop, Brazil.  
 Architect of Phoenix. No formal programming background. Built this iteratively using Claude as a cognitive collaborator.
 
-*"The LLM is an external consultant, never the cognitive engine. Identity, memory, and personality live locally — and survive any model swap."*
+- 📄 **Paper:** [doi.org/10.5281/zenodo.22645361](https://doi.org/10.5281/zenodo.22645361)
+- 📖 **Book:** [Building Persistent AI on Leanpub](https://leanpub.com/phoenix-buildingpersistentAI)
+- 💼 **LinkedIn:** [linkedin.com/in/cleverson-santos](https://www.linkedin.com/in/cleversonsantos2)
+
+---
+
+> *"The LLM is an external consultant, never the cognitive engine. Identity, memory, and personality live locally — and survive any model swap."*
